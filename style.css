@@ -1,0 +1,63 @@
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+body, html {
+  height: 100%;
+  line-height: 1.8;
+}
+
+/* Full height image header */
+.bgimg-1 {
+  background-position: center;
+  background-size: cover;
+  background-image: url(https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80);
+  min-height: 100%;
+}
+
+.w3-bar .w3-button {
+  padding: 16px;
+}
+
+#takeaction{
+  background-color: #06bee1;
+}
+
+
+#offset{
+  background-color: #06bee1;
+}
+
+#logo{
+    width: 120px;
+    margin-top: 8px;
+    margin-left: 10px;
+}
+
+.w3-quarter{
+  float: left;
+  width: 400px;
+}
+
+#project{
+  width: 500px;
+
+}
+
+#icon{
+  width: 90px;
+  margin-top: 8px;
+  margin-left: 10px;
+}
+
+#projecttext{
+  margin-top: 167px;
+  padding-right: 30px;
+}
+
+#projecttext2{
+  margin-top: 50px;
+  padding-left: 30px;
+  text-align: right;
+}
+
+
+
