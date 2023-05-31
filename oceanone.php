@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ocean One</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-card" id="myNavbar">
+    <img src="oc1.png" id="logo">
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small">
+      <a href="#action" class="w3-bar-item w3-button">ACTIONS</a>
+      <a href="#resources" class="w3-bar-item w3-button">RESOURCES</a>
+      <a href="#project" class="w3-bar-item w3-button"> PROJECTS</a>
+      <a href="#explore" class="w3-bar-item w3-button"> EXPLORE</a>
+    </div>
+    
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+  <a href="#action" onclick="w3_close()" class="w3-bar-item w3-button">ACTION</a>
+  <a href="#resources" onclick="w3_close()" class="w3-bar-item w3-button">RESOURCES</a>
+  <a href="#project" onclick="w3_close()" class="w3-bar-item w3-button">PROJECT</a>
+  <a href="#explore" onclick="w3_close()" class="w3-bar-item w3-button">EXPLORE</a>
+</nav>
+
+<!-- Header with full-height image -->
+<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-center w3-display-middle w3-text-white" style="padding:48px">
+    <span class="w3-jumbo w3-hide-small w3-center"><b> Start Something That Matters</span><br></b> 
+    <span class="w3-xxlarge w3-hide-large w3-hide-medium">Start Something That Matters</span><br>
+    <span class="w3-large">Help us reduce plastic waste in the ocean</span>
+    <p><a class="w3-button w3-padding-large w3-large w3-margin-top" style="border-radius: 30px;"
+      id="takeaction" onclick="alert('I am Taking Action')">TAKE AN ACTION</a></p>
+  </div> 
+</header>
+
+<!-- OFFSET SECTION -->
+<div class="w3-container" style="padding:50px 16px;" id="about">
+  <h3 class="w3-left">OFFSET YOUR PLASTIC FOOTPRINT</h3><br>
+  <div class="w3-row-padding w3-left" style="margin-top:20px">
+  <?php
+    include'koneksi.php';
+    $oceanone = mysqli_query($conn, "select * from oceanone");
+    foreach($oceanone as $value) {
+      echo"
+      <div class='w3-quarter'>
+      <p class='w3-large'><b>".$value["judul"]."</p></b>
+      <p id='paragraph'>".$value["isi"]."
+      </p>
+      <p><a href='#' class='w3-button w3-padding-large 
+        w3-large w3-margin-top w3-hover-opacity-off' id='offset' style='border-radius: 30px;'>".$value["tombol"]."</a> 
+      </p>
+    </div>
+      ";
+    }
+  ?>
+    </div>
+  </div>
+</div>
+
+<!-- Impact Section -->
+<div class="w3-container w3-light-grey" style="padding:50px 16px">
+  <h3 class="w3-center"><b>MAKE YOUR IMPACT</h3></b>
+  <div class="w3-row-padding" style="margin-top:64px; text-align: center;">
+    <div class="w3-col m4 w3-margin-bottom">
+        <img src="litter.png" id="icon">
+        <div class="w3-container">
+          <h5>COMMIT TO REMOVING SPECIFIC AMOUNT</h5>
+        </div>
+    </div>
+    <div class="w3-col m4 w3-margin-bottom">
+        <img src="product.png" id="icon">
+        <div class="w3-container">
+          <h5>TIE REMOVAL TO PRODUCT SALES</h5>
+        </div>
+    </div>
+    <div class="w3-col m4 w3-margin-bottom">
+        <img src="group.png" id="icon">
+        <div class="w3-container">
+          <h5>INCENTIVIZE COMMUNITY ACTION</h5>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- Project -->
+<div class="w3-row w3-padding-32">
+  <div class="w3-col m6 w3-padding-large w3-hide-small">
+    <h3><b>Project 1:</h3></b>
+    <h2>OCEAN BOUND CLEAN UP</h2>
+    <img src="https://assets.theoceancleanup.com/app/uploads/2019/05/header_image_by_Matthew_Chauvin.jpg" class="w3-round w3-image" width="600">
+  </div>
+  <div class="w3-col m6"  id="projecttext">
+    <h3 class="w3-left">PROBLEMS</h3>
+    <p class="w3-large w3-left">Plastic recycling generates plastic waste effluent as a standard
+      part of the process. This dirty discharge known as "Mud" is at risk
+      of being discharged into the wastewater and, in the best-case, is usually
+      taken to the nearest landfill.</p>
+  </div>
+</div>
+
+<div class="w3-row w3-padding-32">
+  <div class="w3-col m6 w3-hide-small" id="projecttext2">
+    <h3>SOLUTION</h3>
+    <p class="w3-large w3-right">Repurposes the “Mud” into useful building materials. 
+      It's composition is perfect for producing bricks! Unfortunately, these recycled plastic compound bricks are slightly 
+      more expensive than standard building bricks, so impact
+       program incentivizes the reuse of the “Mud” in the bricks by making them competitive on the open market.</p>
+  </div>
+  <div class="w3-col m6 w3-right w3-padding-large w3-hide-small">
+    <img src="https://regenerativeskills.com/wp-content/uploads/2016/05/Adobe.jpeg" class="w3-round w3-image w3-right" width="600">
+  </div>
+</div>
+
+<div class="w3-row w3-padding-32 w3-light-grey">
+  <div class="w3-col m6 w3-padding-large w3-hide-small">
+    <h3><b>Project 2:</h3></b>
+    <h2>FISHING NET RECOVERY</h2>
+    <img src="https://i0.wp.com/zenbird.media/wp-content/uploads/2021/08/untangleit-1.jpg?resize=716%2C403&ssl=1" class="w3-round w3-image" width="600">
+  </div>
+  <div class="w3-col m6"  id="projecttext">
+    <h3 class="w3-left">PROBLEMS</h3>
+    <p class="w3-large w3-left">Fishing gear - nets and ropes - pose a significant risk to sea life if cut away in the ocean. 
+      Unfortunately, incentives do not exist to recover this gear so at the end of its life, 
+      most gets landfilled or simply cut away at sea. It's a huge reason for why fishing nets are the largest ocean plastic polluter.</p>
+  </div>
+</div>
+
+<div class="w3-row w3-padding-32 w3-light-grey">
+  <div class="w3-col m6 w3-hide-small" id="projecttext2">
+    <h3>SOLUTION</h3>
+    <p class="w3-large w3-right">We provides the funds needed to incentivize collection and recycling of this gear. 
+      This program creates a pathway for 
+      the reclamation of end of life fishing gear.</p>
+  </div>
+  <div class="w3-col m6 w3-right w3-padding-large w3-hide-small">
+    <img src="https://www.springwise.com/wp-content/uploads/2022/03/innovationfashion-beautyfashion-from-recycled-fishing-nets.png" class="w3-round w3-image w3-right" width="600">
+  </div>
+</div>
+
+<!-- Get in touch -->
+<div class="w3-container w3-white" style="padding:128px 16px" id="contact">
+  <h3 class="w3-center"><b>GET IN TOUCH</h3></b>
+  <p class="w3-center w3-large">Send us a message:</p>
+
+  <div class="w3-row w3-padding-16">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d64601885.47903622!2d161.66381835937494!3d-8.787368246556218!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x76ed042c30f318eb%3A0x8eff14a070876cbc!2sSamudra%20Pasifik!5e0!3m2!1sid!2sid!4v1683469859205!5m2!1sid!2sid"
+      width="600" height="485"></iframe>
+    </div>
+    <div class="w3-col m6 w3-padding-large">
+      <form id="form">
+        <p>Name</p>
+        <p><input class="w3-input w3-border" type="text" placeholder=" Your name" required name="Name" id="nama"></p>
+        <p>Email</p>
+        <p><input class="w3-input w3-border" type="text" placeholder="Your email" required name="Email" id="email"></p>
+        <p>Subject</p>
+        <p><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject" id="subject"></p>
+        <p>Message</p>
+        <p><input class="w3-input w3-border" type="text" placeholder="Your message" required name="Message" id="message"></p>
+        <p class="w3-center">
+          <button class="w3-button" type="button" style="border-radius: 18px; background-color: #06bee1; color: white;" onclick="form_send()">
+            <i class="fa fa-paper-plane"></i> SEND MESSAGE
+          </button>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-padding-64" style="background-image: linear-gradient(white,lightgray);">
+  <div class="w3-section" style="margin-right: 15px;">
+    <img src="oc1.png" class="w3-left w3-xlarge" width="100px" style="margin-top: 5px; margin-left: 10px;">
+    <div class="w3-right" >
+      <a href="#action" class="w3-bar-item w3-button">Newsletter</a>
+      <a href="#resources" class="w3-bar-item w3-button">Privacy policy</a>
+      <a href="#project" class="w3-bar-item w3-button"> FAQs</a>
+    </div>
+  </div>
+</footer>
+ 
+<script>
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+
+// Toggle between showing and hiding the sidebar when clicking the menu icon
+var mySidebar = document.getElementById("mySidebar");
+
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+  } else {
+    mySidebar.style.display = 'block';
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+}
+
+var p = document.getElementById('paragraph');
+  function edit(){
+      p.innerHTML = '<textarea id="Text" style="width: 100%; height: 120px">'+ p.textContent +'</textarea></br><input type="button" id="btn" value="Update" onclick="test()"/>';
+  }
+  function test(){
+      p.textContent = document.getElementById('Text').value;
+  }
+
+  function form_send(){
+      var nama = document.getElementById('nama');
+      var email = document.getElementById('email');
+      var subject = document.getElementById('subject');
+      var message = document.getElementById('message');
+      var form = document.getElementById('form');
+      
+      form.innerHTML = 
+      '<div style="padding-left: 20%; padding-top: 15%;"><h3 style="padding-bottom: 20px; align-text: center; color: #06bee1;"><b>Thank You For Your Response!</b></h3><div style="padding-bottom: 10px;">Name : ' + nama.value +'</div><div style="padding-bottom: 10px;">Email : ' + email.value + '</div><div style="padding-bottom: 10px;">Subject : ' + subject.value + '</div><div style="padding-bottom: 10px;">Message : ' + message.value + '</div></div>';
+  }
+</script>
+</body>
+</html>
